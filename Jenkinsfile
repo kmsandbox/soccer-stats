@@ -120,7 +120,11 @@ stage('Deploy') {
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
             playbook: 'provision/playbook.yml',
-            hostKeyChecking: false
+            hostKeyChecking: false,
+            extraVars: [
+              ARTIFACT_URL: env.ARTIFACT_URL,
+              APP_NAME: env.APP_NAME
+            ]
         }
     }
 }
