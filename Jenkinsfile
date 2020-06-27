@@ -120,8 +120,8 @@ stage('Deploy') {
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
             playbook: 'provision/playbook.yml', 
-            sudo: true,
-            sudoUser: 'jenkins'
+            become: true,
+            becomeUser: 'root'
         }
     }
 }
