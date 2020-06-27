@@ -20,10 +20,10 @@
   tasks:
     - get_url:
         force: yes
-        url: "{{ ARTIFACT_URL }}"
-        dest: "/tmp/{{ APP_NAME }}.war"
+        url: "{{ env.ARTIFACT_URL }}"
+        dest: "/tmp/{{ env.APP_NAME }}.war"
     - stat: 
-        path: "/tmp/{{ APP_NAME }}.war"
+        path: "/tmp/{{ env.APP_NAME }}.war"
 
 - name: Setup Spring Boot
   hosts: app_server
@@ -31,7 +31,7 @@
   become_user: root
   roles: 
     - { role: pellepelster.springboot-role,
-        spring_boot_file: "{{ APP_NAME }}.war",
-        spring_boot_file_source: "/tmp/{{ APP_NAME }}.war",
-        spring_boot_application_id: "{{ APP_NAME }}"
+        spring_boot_file: "{{ env.APP_NAME }}.war",
+        spring_boot_file_source: "/tmp/{{ env.APP_NAME }}.war",
+        spring_boot_application_id: "{{ env.APP_NAME }}"
     } 

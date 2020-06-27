@@ -87,7 +87,7 @@ if(FULL_BUILD) {
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'ansible-meetup', 
-                version: "${pom.version}"        
+                version: "${pom.version}"
         }
     }
 }
@@ -119,7 +119,8 @@ stage('Deploy') {
             limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
-            playbook: 'provision/playbook.yml'
+            playbook: 'provision/playbook.yml',
+            hostKeyChecking: false
         }
     }
 }
