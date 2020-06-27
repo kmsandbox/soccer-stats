@@ -119,9 +119,7 @@ stage('Deploy') {
             limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
-            playbook: 'provision/playbook.yml', 
-            become: true,
-            becomeUser: 'root'
+            playbook: 'provision/playbook.yml'
         }
     }
 }
